@@ -13,3 +13,4 @@ func _ready():
 	print(len(playerName))
 	print(playerHealth + 2)
 	print(randi() % 20)
+	print("*^yl1*************************")
