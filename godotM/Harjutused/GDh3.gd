@@ -1,21 +1,26 @@
 extends Node
 
+var rng = RandomNumberGenerator.new()
+
 func _ready():
-	var punktid = [7,28,64,51,81,40,21,73,34,98,39,17,33,85,35,44]
-	var punktid_a = []
-	var kokku = 0
-	for i in punktid:
-		kokku += i
-	var keskmine = kokku / len(punktid)
+	print("---------- yl3 ----------")
 	
-	print("Keskmine: ",keskmine)
+	var p1_health = 100
+	var p2_health = 100
 	
-	if i not in punktid_a:
-		punkt.appear(punktid_a)
-			
+	while p1_health >= 0:
+		rng.randomize()
+		var p1_dmg = rng.randi_range(8, 15)
+		var p2_dmg = rng.randi_range(10, 18)
+		p1_health -= p2_dmg
+		p2_health -= p1_dmg
+		
+		print("P1 Hit: ",p1_dmg,"| P2 Life: ",p2_health)
+		print("P2 Hit: ",p2_dmg,"| P1 Life: ",p1_health)
 	
-	print("Punktid: ",punktid_a)
-	
-	
-	print("*^yl5.2***********************************")
-	
+	if p1_health > 0:
+		print("Game Over, P1 võitis.")
+	elif p2_health > 0:
+		print("Game Over, P2 võitis.")
+	else:
+		print("Game Over, Mõlemad mängijad kaotasid.")
