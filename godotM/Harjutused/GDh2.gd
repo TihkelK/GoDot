@@ -5,9 +5,22 @@
 extends Node
 
 func _ready():
-	var player = []
+	var tootunnid = 40
+	var tunnitasu = 5
+	var tasu
+	var tunnid = 50
+	if tootunnid >= 40:
+		tasu = tunnid * tunnitasu
+	else:
+		tasu = 40 * tunnitasu + (tunnid - 40) * 1.5 * tootunnid
+	print(tasu)
 	
+	print("*^yl5.1***********************************")
 	
+	var player = {"posx":"50", "posy":"50", "health":100, "items":["relv","vibu"], "gold":0}
+	while player.gold < 5:
+		player.gold += 5
+	print("Kulla kogus: ",player.gold)
 	
 	print("*^yl4.2***********************************")
 	
