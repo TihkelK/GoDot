@@ -7,31 +7,32 @@ var salv = 5
 var laskude_arv = int()
 var skoor = int()
 var tabamisprots = []
-var tegevus
 
 func _ready():
-	pass
+	$kirjad/tegevus.text = "lasen"
 
 func _process(delta):
-	
 	$kirjad/kuulid.text = "Kuulid: %s" % salv
-	#$kirjad/tegevus.text = tegevus
+	$kirjad/elud.text = "Elud: %s" % vaenlaseElud
+	$kirjad/skoor.text = "Skoor: %s" % skoor
 	
 	if Input.is_action_just_pressed("lase_relva"):
-		#tegevus.append("Laskmine")
+		$kirjad/tegevus.text = "piu piu"
 		laskmine(salv)
 	if Input.is_action_just_pressed("lae_relva"):
+		$kirjad/tegevus.text = "laen"
 		print("*Laen*")
 		print("--------------------")
-		#tegevus.append("Laadime")
 		laadimine()
 	if vaenlaseElud <= 0:
+		vaenlaseElud = 0
 		tabamisprots = (skoor * 100 / laskude_arv)
+		$kirjad/game_over.text = "Game Over"
 		print("Game Over")
 		print("Punktid: ",skoor)
 		print("Laskude arv: ",laskude_arv)
 		print("Efektiivsus: ",tabamisprots,"%")
-		get_tree().quit()
+		get_tree().paused = true
 
 func laskmine(x):
 	var pihtas = bool(randi() % 2)

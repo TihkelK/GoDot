@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://gpic.jpg" type="Texture" id=1]
+[ext_resource path="res://VT323-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GDh8.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 34
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 2 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 3 )
+
+[node name="taust" type="TextureRect" parent="."]
+margin_right = 1029.0
+margin_bottom = 595.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="nimi" type="RichTextLabel" parent="."]
+margin_left = 281.0
+margin_top = 1.0
+margin_right = 848.0
+margin_bottom = 85.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "KIVI-PABER-KÄÄRID"
+
+[node name="uus_mang" type="Button" parent="."]
+margin_left = 440.0
+margin_top = 78.0
+margin_right = 652.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 2 )
+text = "UUS MÄNG"
+
+[node name="punktid" type="RichTextLabel" parent="."]
+margin_left = 36.0
+margin_top = 135.0
+margin_right = 187.0
+margin_bottom = 180.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "(punktid)"
+
+[node name="punktid2" type="RichTextLabel" parent="."]
+margin_left = 853.0
+margin_top = 135.0
+margin_right = 1004.0
+margin_bottom = 180.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "(punktid2)"
+
+[node name="tulemus" type="RichTextLabel" parent="."]
+margin_left = 435.0
+margin_top = 159.0
+margin_right = 671.0
+margin_bottom = 230.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "(TULEMUS)"
+
+[node name="valik" type="RichTextLabel" parent="."]
+margin_left = 117.0
+margin_top = 273.0
+margin_right = 388.0
+margin_bottom = 364.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "(VALIK)"
+
+[node name="valik2" type="RichTextLabel" parent="."]
+margin_left = 645.0
+margin_top = 279.0
+margin_right = 916.0
+margin_bottom = 370.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "(VALIK2)"
+
+[node name="kivi" type="Button" parent="."]
+margin_left = 21.0
+margin_top = 501.0
+margin_right = 233.0
+margin_bottom = 557.0
+custom_fonts/font = SubResource( 2 )
+text = "KIVI"
+
+[node name="paber" type="Button" parent="."]
+margin_left = 239.0
+margin_top = 501.0
+margin_right = 451.0
+margin_bottom = 557.0
+custom_fonts/font = SubResource( 2 )
+text = "PABER"
+
+[node name="kaarid" type="Button" parent="."]
+margin_left = 457.0
+margin_top = 500.0
+margin_right = 669.0
+margin_bottom = 556.0
+custom_fonts/font = SubResource( 2 )
+text = "KÄÄRID"
+
+[connection signal="pressed" from="kivi" to="." method="_on_kivi_pressed"]
