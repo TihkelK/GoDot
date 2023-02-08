@@ -12,11 +12,30 @@ func _ready():
 	pass
 
 func _process(delta):
-	$taust/valik.text = "%s" % valik
-	$taust/valik2.text = "%s" % arvuti_valik
-	$taust/tulemus.text = "Võitja: %s" % tulemus
-
-
+	if valik == null:
+		pass
+	else:
+		$taust/valik.bbcode_text = "[center]%s[/center]" % valik
+	if arvuti_valik == null:
+		pass
+	else:
+		$taust/valik2.bbcode_text = "[center]%s[/center]" % arvuti_valik
+	if tulemus == null:
+		pass
+	else:
+		$taust/tulemus.bbcode_text = "[center]%s[/center]" % tulemus
+	$taust/punktid.bbcode_text = "[center]Punktid: %s[/center]" % mangija_skoor
+	$taust/punktid2.bbcode_text = "[center]Punktid: %s[/center]" % arvuti_skoor
+	if mangija_skoor == 10:
+		$taust/voitja.bbcode_text = "[center]Mängija võitis[/center]"
+		$taust/kivi.visible = false
+		$taust/paber.visible = false
+		$taust/kaarid.visible = false
+	elif arvuti_skoor == 10:
+		$taust/voitja.bbcode_text = "[center]Arvuti võitis[/center]"
+		$taust/kivi.visible = false
+		$taust/paber.visible = false
+		$taust/kaarid.visible = false
 func _on_kivi_pressed():
 	valik = "kivi"
 	rng.randomize()
@@ -66,4 +85,4 @@ func _on_kaarid_pressed():
 		tulemus = "VIIK"
 
 func _on_uus_mang_pressed():
-	pass
+	get_tree().reload_current_scene()
